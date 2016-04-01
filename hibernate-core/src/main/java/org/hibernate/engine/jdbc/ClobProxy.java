@@ -142,7 +142,7 @@ public class ClobProxy implements InvocationHandler {
 			if ( start < 1 ) {
 				throw new SQLException( "Start position 1-based; must be 1 or more." );
 			}
-			if ( start > getLength() ) {
+			if ( start - 1 > getLength() ) {
 				throw new SQLException( "Start position [" + start + "] cannot exceed overall CLOB length [" + getLength() + "]" );
 			}
 			int length = (Integer) args[1];
