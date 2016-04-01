@@ -383,6 +383,9 @@ public class ComponentType extends AbstractType implements CompositeType {
 
 	public Object[] getPropertyValues(Object component, EntityMode entityMode)
 			throws HibernateException {
+    if (component instanceof Object[]) {
+        return (Object[]) component;
+    }
 		return tuplizerMapping.getTuplizer( entityMode ).getPropertyValues( component );
 	}
 
